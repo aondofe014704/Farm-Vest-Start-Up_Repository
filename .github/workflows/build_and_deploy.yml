@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t bally3399/rideshare:${{ github.sha }} .
+        run: docker build -t jacksongu014704/rideshare:${{ github.sha }} .
 
       - name: Push Docker image to Docker Hub
-        run: docker push bally3399/rideshare:${{ github.sha }}
+        run: docker push jacksongu014704/rideshare:${{ github.sha }}
