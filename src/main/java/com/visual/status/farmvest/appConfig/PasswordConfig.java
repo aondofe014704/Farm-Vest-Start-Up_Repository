@@ -9,19 +9,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
-
 import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
 public class PasswordConfig {
-    @Autowired
     DataSource dataSource;
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+
+
 //    @Bean
 //    public UserDetailsService userDetailsService(){
 //        UserDetails user = User.withUsername("user")

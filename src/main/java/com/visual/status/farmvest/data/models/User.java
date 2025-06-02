@@ -20,11 +20,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
+    @Column(nullable = false)
     private String fullName;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private String phoneNumber;
+    @Column(nullable = false)
     private String address;
+    private boolean isLoggedIn;
     private UserStatus UserStatus;
     private Roles roles;
     private String userurl;
@@ -33,7 +39,7 @@ public class User {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDateTime registrationDate;
     private LocalDateTime lastLoginDate;
-    private  String description;
+
 
     @PrePersist
     public void setRegistrationDate(){

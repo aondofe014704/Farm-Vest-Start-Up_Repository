@@ -1,9 +1,6 @@
 package com.visual.status.farmvest.data.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,13 +15,17 @@ public class Farm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long farmId;
-    private Long userId;
-    private String fullName;
-    private String farmAddress;
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User userId;
+    @Column(nullable = false)
+    private String farmName;
+    @Column(nullable = false)
     private String cropType;
+    @Column(nullable = false)
     private String livestockType;
-    private int farmSize;
-    private int productionCapacity;
-    private String  farmurl;
-
+    @Column(nullable = false)
+    private double farmSize;
+    @Column(nullable = false)
+    private  String description;
 }
